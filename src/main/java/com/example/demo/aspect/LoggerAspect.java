@@ -20,7 +20,7 @@ public class LoggerAspect {
         this.logger = logger;
     }
 
-    @Around("@annotation(LogTime))")
+    @Around("com.example.demo.aspect.Pointcuts.logTimePointcut()")
     public Object logTime(final ProceedingJoinPoint joinPoint) throws Throwable {
         long time = new Date().getTime();
         Object result = joinPoint.proceed();
