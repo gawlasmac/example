@@ -20,7 +20,7 @@ public class LoggerAspect {
         this.logger = logger;
     }
 
-    @Around("execution(* com.example.demo.restcontrollers..*(..))")
+    @Around("@annotation(LogTime))")
     public Object logTime(final ProceedingJoinPoint joinPoint) throws Throwable {
         long time = new Date().getTime();
         Object result = joinPoint.proceed();

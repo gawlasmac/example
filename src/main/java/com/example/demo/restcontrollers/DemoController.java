@@ -2,6 +2,7 @@ package com.example.demo.restcontrollers;
 
 import com.example.demo.Customer;
 import com.example.demo.CustomerRepository;
+import com.example.demo.aspect.LogTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,7 @@ public class DemoController {
     }
 
     @GetMapping("/list")
+    @LogTime
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
