@@ -23,7 +23,7 @@ public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler
     @Override
     protected ResponseEntity<Object> handleMissingPathVariable(MissingPathVariableException ex, HttpHeaders headers,
                                                                HttpStatus status, WebRequest request) {
-        return new ResponseEntity<>("Missing variable: ", HttpStatus.OK)
+        return new ResponseEntity<>("Missing variable: ", HttpStatus.OK);
     }
 
     @ExceptionHandler(value = {Exception.class})
