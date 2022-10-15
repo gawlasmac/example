@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.restcontrollers;
 
+import com.example.demo.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

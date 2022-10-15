@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.restcontrollers;
 
+import com.example.demo.Customer;
+import com.example.demo.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
