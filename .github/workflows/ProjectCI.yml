@@ -1,24 +1,26 @@
-- pipeline: "Project CI"
-  on: "EVENT"
-  events:
-    - type: "PUSH"
-      refs:
-        - "refs/heads/master"
-  priority: "NORMAL"
-  fail_on_prepare_env_warning: true
-  resources: "DEFAULT"
-  actions:
-    - action: "Execute mvn clean install"
-      type: "BUILD"
-      working_directory: "/buddy/example"
-      main_service_name: "Main"
-      docker_image_name: "library/maven"
-      docker_image_tag: "3.8.6"
-      execute_commands:
-        - "mvn clean install"
-      cached_dirs:
-        - "/root/.m2/repository"
-      volume_mappings:
-        - "/:/buddy/example"
-      cache_base_image: true
-      shell: "BASH"
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Project CI
+
+on:
+  push:
+    branches: [ "refs/heads/master" ]
+  pull_request:
+    branches: [ "refs/heads/master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
