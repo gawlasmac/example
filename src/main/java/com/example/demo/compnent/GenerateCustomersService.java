@@ -1,14 +1,14 @@
 package com.example.demo.compnent;
 
 import com.example.demo.Customer;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-@Component
-public class ImportCustomersComponent implements ImportCustomers {
+@Service
+public class GenerateCustomersService implements ImportCustomers {
 
     private List<String> names = List.of("James", "Christopher", "Daniel", "Madeleine", "Melissa");
     private List<String> surnames = List.of("Brown", "White", "Red", "Black", "Blue");

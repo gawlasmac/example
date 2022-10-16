@@ -12,7 +12,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.List;
 
 @SpringBootTest
-public class ImportCustomersComponentTest {
+public class GenerateCustomersServiceTest {
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -21,7 +21,7 @@ public class ImportCustomersComponentTest {
 
     @BeforeEach
     public void setup() {
-        importCustomers = applicationContext.getBean(ImportCustomersComponent.class);
+        importCustomers = applicationContext.getBean(GenerateCustomersService.class);
     }
 
     @Test
