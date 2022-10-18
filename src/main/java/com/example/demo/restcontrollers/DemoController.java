@@ -32,7 +32,7 @@ public class DemoController {
 
     @GetMapping("/find/{id}")
     public Customer findCustomerByOd(@PathVariable Integer id) {
-        return customerRepository.findById(id).get()
+        return customerRepository.findById(id).get();
     }
 
 
